@@ -843,7 +843,7 @@ Congratulations on finishing this assignment. You can use your own image and see
 
 ```python
 ## START CODE HERE ## (PUT YOUR IMAGE NAME) 
-my_image = "cat-300572_960_720.jpg"   # change this to the name of your image file 
+my_image = "adorable-cat.jpg"   # change this to the name of your image file 
 ## END CODE HERE ##
 
 # We preprocess the image to fit your algorithm.
@@ -858,6 +858,10 @@ print("y = " + str(np.squeeze(my_predicted_image)) + ", your algorithm predicts 
 ```
 
     y = 1.0, your algorithm predicts a "cat" picture.
+
+
+
+![png](output_53_1.png)
 
 
 <font color='blue'>
