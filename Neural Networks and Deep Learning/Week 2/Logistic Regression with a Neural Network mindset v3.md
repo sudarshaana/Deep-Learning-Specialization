@@ -81,9 +81,9 @@ Remember that `train_set_x_orig` is a numpy-array of shape (m_train, num_px, num
 
 ```python
 ### START CODE HERE ### (≈ 3 lines of code)
-m_train = len(train_set_x_orig)
-m_test = len(test_set_x_orig)
-num_px = len(train_set_x_orig[:1])
+m_train = train_set_x_orig.shape[0]
+m_test = test_set_x_orig.shape[0]
+num_px = train_set_x_orig.shape[1]
 ### END CODE HERE ###
 
 print ("Number of training examples: m_train = " + str(m_train))
@@ -98,8 +98,8 @@ print ("test_set_y shape: " + str(test_set_y.shape))
 
     Number of training examples: m_train = 209
     Number of testing examples: m_test = 50
-    Height/Width of each image: num_px = 1
-    Each image is of size: (1, 1, 3)
+    Height/Width of each image: num_px = 64
+    Each image is of size: (64, 64, 3)
     train_set_x shape: (209, 64, 64, 3)
     train_set_y shape: (1, 209)
     test_set_x shape: (50, 64, 64, 3)
@@ -799,6 +799,30 @@ frame.set_facecolor('0.90')
 plt.show()
 ```
 
+    learning rate is: 0.01
+    train accuracy: 99.52153110047847 %
+    test accuracy: 68.0 %
+    
+    -------------------------------------------------------
+    
+    learning rate is: 0.001
+    train accuracy: 88.99521531100478 %
+    test accuracy: 64.0 %
+    
+    -------------------------------------------------------
+    
+    learning rate is: 0.0001
+    train accuracy: 68.42105263157895 %
+    test accuracy: 36.0 %
+    
+    -------------------------------------------------------
+    
+
+
+
+![png](output_50_1.png)
+
+
 **Interpretation**: 
 - Different learning rates give different costs and thus different predictions results.
 - If the learning rate is too large (0.01), the cost may oscillate up and down. It may even diverge (though in this example, using 0.01 still eventually ends up at a good value for the cost). 
@@ -819,18 +843,22 @@ Congratulations on finishing this assignment. You can use your own image and see
 
 ```python
 ## START CODE HERE ## (PUT YOUR IMAGE NAME) 
-my_image = "my_image.jpg"   # change this to the name of your image file 
+my_image = "cat-300572_960_720.jpg"   # change this to the name of your image file 
 ## END CODE HERE ##
 
 # We preprocess the image to fit your algorithm.
 fname = "images/" + my_image
 image = np.array(ndimage.imread(fname, flatten=False))
 my_image = scipy.misc.imresize(image, size=(num_px,num_px)).reshape((1, num_px*num_px*3)).T
+
 my_predicted_image = predict(d["w"], d["b"], my_image)
 
 plt.imshow(image)
 print("y = " + str(np.squeeze(my_predicted_image)) + ", your algorithm predicts a \"" + classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") +  "\" picture.")
 ```
+
+    y = 1.0, your algorithm predicts a "cat" picture.
+
 
 <font color='blue'>
 **What to remember from this assignment:**
