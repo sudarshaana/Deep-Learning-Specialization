@@ -8,4 +8,6 @@ If you want to break into AI, this Specialization will help you do so. Deep Lear
 - Structuring Machine Learning Projects
 - Convolutional Neural Networks
 - Sequence Models
+
+
 https://www.coursera.org/specializations/deep-learning
